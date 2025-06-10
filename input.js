@@ -28,10 +28,18 @@ const handleUserInput = (key) => {
     case "d": 
       connection.write("Move: right");
     break;
-    case "\u0003": 
-      process.exit();
-    default:
+    case "p": 
+      connection.write("Say: You're going down!");
     break;
+    case "o": 
+      connection.write("Say: I'm hungry");
+    break;
+    case "i": 
+      connection.write("Say: Hello World!");
+    break;
+    case "\u0003": 
+      console.log("Exiting game")
+      process.exit();
   }
 }
 
