@@ -62,10 +62,10 @@ class RemoteInterface {
       client.write(`A new player has joined`);
     });
 
-    //added the broadcast before pushing the new client to the clients array so that everyone gets the message except the client that is joining.
+    //push the new client after the loop so that everyone gets the message except the client that is joining.
     this.clients.push(client);
 
-    //this loop sends a message to all clients (including the client that just joined) with the number of players connected to the server.
+    //Once the new client is added to the array, this loop broadcasts a message to all clients with the number of player connected.
     this.clients.forEach(client => {
       client.write(`${this.clients.length} player${this.clients.length > 1 ? "s" : ""} connected`);
     });
